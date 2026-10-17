@@ -448,9 +448,9 @@
       Open to Quality Control and Food Safety opportunities. Feel free to reach out by email or phone.
     </p>
     <div class="contact-grid">
-      <a class="contact-card" href="/cdn-cgi/l/email-protection#640e0b0c0a100b09055c50240309050d084a070b09">
+      <a class="contact-card" id="emailCard" href="/cdn-cgi/l/email-protection#dbfdf8eaebede0b4b3b5afb4b6bae3effdf8edefe0bcb6bab2b7fdf8efede0b8b4b6">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-        <span><small>Email</small><b><span class="__cf_email__" data-cfemail="ff959097918b90929ec7cbbf98929e9693d19c9092">[email&#160;protected]</span></b></span>
+        <span><small>Email</small><b id="emailText">&#106;ohntoma84&#64;gmail&#46;com</b></span>
       </a>
       <a class="contact-card" href="tel:+201555465062">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
@@ -512,10 +512,21 @@
     store('theme', next);
   });
 
+  /* ===== الإيميل: بنبنيه وقت التشغيل عشان حماية الإيميلات (Cloudflare)
+     مبتشفّرهوش ويظهر [email protected] ===== */
+  (function(){
+    var user = "johntoma84", domain = "gmail" + "." + "com";
+    var addr = user + String.fromCharCode(64) + domain;
+    var card = document.getElementById("emailCard");
+    var txt  = document.getElementById("emailText");
+    if (txt)  txt.textContent = addr;
+    if (card) card.setAttribute("href", "mailto:" + addr);
+  })();
+
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:.1});
   document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a48d315ea948e192',t:'MTc5MTcxNDY2Mg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
